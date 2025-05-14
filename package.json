@@ -1,0 +1,14 @@
+{
+  "name": "fila",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "scripts": {
+    "test": "ts-node src/server.ts"
+  },
+  "author": "Samuel",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "node-cron": "^4.0.5"
+  }
+}
