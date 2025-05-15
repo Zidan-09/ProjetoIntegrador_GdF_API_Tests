@@ -43,6 +43,7 @@ class ConsultQueueClass extends Queue<NodeConsult> {
     }
 
     public insertConsultQueue(no: NodeConsult) {
+        console.log(no);
         if (ConsultQueue.qtyPatients == 0) {
             ConsultQueue.firstPointer = no;
             ConsultQueue.lastPointer = no;

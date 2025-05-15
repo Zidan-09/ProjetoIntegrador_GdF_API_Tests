@@ -1,6 +1,8 @@
 import { ConsultQueue } from "../../../models/queue";
 import { NodeConsult } from "../../../utils/createNode";
 
+const nodesToSort: NodeConsult[] = [];
+
 export class PriorityHandler {
     static verify(): string {
         let temp: NodeConsult | null = ConsultQueue.getFirst();
@@ -20,15 +22,17 @@ export class PriorityHandler {
 
                     if (dateNow >= limit) {
                         temp.maxPriority = true;
-                        this.toSort(temp);
+                        nodesToSort.push(temp);
                     }
-
                     temp = next;    
                 }
             }
+            nodesToSort.forEach(node => this.toSort(node));
+            
             return 'Fila atualizada';
         }
     };
+
     static toSort(no: NodeConsult): void {
         if (ConsultQueue.getFirst() != no) {
 
