@@ -35,6 +35,8 @@ abstract class Queue<T extends { pointer: T | null }> {
     public getQty(): number {
         return this.qtyPatients;
     }
+
+    abstract insertQueue(no: NodeConsult): void
 };
 
 class ConsultQueueClass extends Queue<NodeConsult> {
@@ -42,7 +44,7 @@ class ConsultQueueClass extends Queue<NodeConsult> {
         super();
     }
 
-    public insertConsultQueue(no: NodeConsult) {
+    public insertQueue(no: NodeConsult) {
         console.log(no);
         if (ConsultQueue.qtyPatients == 0) {
             ConsultQueue.firstPointer = no;
