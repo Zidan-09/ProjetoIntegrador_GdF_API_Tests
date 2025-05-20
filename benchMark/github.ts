@@ -6,9 +6,9 @@ export class Node<T> {
       public priority: number,
       public next: Node<T> | null = null
     ) {}
-  }
+}
   
-  export class PriorityQueue<T> {
+export class PriorityQueue<T> {
     private head: Node<T> | null = null;
   
     /**
@@ -70,11 +70,11 @@ export class Node<T> {
     size(): number {
       let count = 0;
       let current = this.head;
-      while (current) {
-        count++;
-        current = current.next;
-      }
-      return count;
+        while (current) {
+            count++;
+            current = current.next;
+        }
+        return count;
     }
   
     /**
@@ -82,13 +82,13 @@ export class Node<T> {
      * @returns Uma string representando os elementos da fila.
      */
     toString(): string {
-      const elements: string[] = [];
-      let current = this.head;
-      while (current) {
-        elements.push(`(${current.value}, p=${current.priority})`);
-        current = current.next;
-      }
-      return elements.join(" -> ");
+        const elements: string[] = [];
+        let current = this.head;
+        while (current) {
+            elements.push(`(${current.value}, p=${current.priority})`);
+            current = current.next;
+        }
+        return elements.join(" -> ");
     }
 }
 
