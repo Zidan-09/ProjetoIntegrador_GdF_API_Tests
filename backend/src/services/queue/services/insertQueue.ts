@@ -9,6 +9,6 @@ export class InsertQueue {
     }
 
     static insertConsultQueue(node: NodeConsult) {
-        ConsultQueue.insertConsultQueue(node);
+        ConsultQueue.insertQueue(node);
     }
 }

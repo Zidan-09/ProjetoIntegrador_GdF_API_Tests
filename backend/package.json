@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.ts",
   "scripts": {
-    "test": "ts-node src/server.ts"
+    "dev": "ts-node src/server.ts"
   },
   "author": "Samuel",
   "license": "ISC",
