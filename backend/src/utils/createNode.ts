@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid'
 import { criteria } from "../models/criteria";
 import { QueueTest } from "../models/queueTest";
 
 class NodeConsult {
+    id: string;
     patient_name: string;
     triageCategory: number;
     time: Date;
@@ -13,6 +15,7 @@ class NodeConsult {
     pointer: null | NodeConsult;
 
     constructor(patientTriage: QueueTest) {
+        this.id = uuidv4();
         this.patient_name = patientTriage.patient_name;
         this.pointer = null;
         this.time = new Date();
@@ -63,4 +66,4 @@ class NodeConsult {
     }
 };
 
-export { NodeConsult }
+export { NodeConsult };

@@ -1,20 +1,17 @@
 import { ConsultQueue } from "../../../models/queue";
 
 export class ShowQueue {
-    static showQueue(): string[] | string {
+    static showQueue() {
         let queueList = [];
+        let temp = ConsultQueue.getFirst();
         
-        let tempC = ConsultQueue.getFirst();
-
-        if (!tempC) {
-            return 'Fila vazia'
-        }
-
-        for (let i = 0; i < ConsultQueue.getQty(); i++) {
-            if (tempC) {
-            queueList.push(tempC.patient_name);
-            tempC = tempC.pointer
-            }
+        while (temp) {
+            queueList.push({
+                patient_name: temp.patient_name,
+                triageCategory: temp.triageCategory,
+                time: temp.time
+            });
+            temp = temp.pointer;
         }
         return queueList;
     }
