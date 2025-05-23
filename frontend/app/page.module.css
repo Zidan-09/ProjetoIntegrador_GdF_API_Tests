@@ -1,24 +1,279 @@
+
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.title {
-  color: #0070f3;
-  margin-bottom: 1rem;
-  font-size: 2rem;
+.header {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #2b6cb0;
+  text-align: center;
 }
 
-.description {
-  margin-bottom: 1rem;
-  color: #666;
-}
-
-.list {
-  margin-left: 2rem;
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
   margin-bottom: 2rem;
 }
+
+.inputField {
+  padding: 0.8rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.selectField {
+  padding: 0.8rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  width: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.addButton {
+  background-color: #4299e1;
+  color: white;
+}
+
+.addButton:hover {
+  background-color: #3182ce;
+  transform: translateY(-2px);
+}
+
+.callButton {
+  background-color: #48bb78;
+  color: white;
+}
+
+.callButton:hover {
+  background-color: #38a169;
+  transform: translateY(-2px);
+}
+
+.queueTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2b6cb0;
+  align-self: flex-start;
+  text-align: center;
+  width: 100%;
+}
+
+.queueList {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.queueItem {
+  padding: 1rem;
+  background-color: white;
+  border-bottom: 1px solid #edf2f7;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s;
+}
+
+.queueItem:hover {
+  background-color: #f7fafc;
+}
+
+.queueItem:last-child {
+  border-bottom: none;
+}
+
+.patientInfo {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.emptyQueue {
+  padding: 2rem;
+  text-align: center;
+  color: #718096;
+  font-style: italic;
+  background-color: white;
+}
+
+/* Notificações */
+.notification {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: slideIn 0.3s ease-out, fadeOut 0.5s 4.5s forwards;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.5;
+}
+
+.notificationContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.patientName {
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.notificationSuccess {
+  background: #10b981;
+  border-left: 4px solid #059669;
+}
+
+.notificationCall {
+  background: #3b82f6;
+  border-left: 4px solid #2563eb;
+  animation: slideIn 0.3s ease-out, pulse 1s infinite alternate, fadeOut 0.5s 4.5s forwards;
+}
+
+.notificationError {
+  background: #ef4444;
+  border-left: 4px solid #dc2626;
+}
+
+
+/* Notificações Aprimoradas */
+.notificationsContainer {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 1000;
+  pointer-events: none;
+  width: 90%;
+  height: 10px;
+  max-width: 300px;
+}
+
+.notification {
+  padding: 1.2rem 1.8rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  line-height: 1.6;
+  pointer-events: auto;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: topIn 0.3s ease-out forwards, 
+             topOut 0.3s ease-in 4.5s forwards;
+  font-size: 1.15rem;
+}
+
+.notificationEmoji {
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-right: 0.5rem;
+}
+
+.notificationContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 1.15rem;
+}
+
+.patientName {
+  font-weight: 400;
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.notificationSuccess {
+  background: #10b981;
+  border-left: 5px solid #059669;
+  width: 400px;
+  height: 100px;
+}
+
+.notificationCall {
+  background: #3b82f6;
+  border-left: 5px solid #2563eb;
+  width: 300px;
+  height: 90px;
+  animation: topIn 0.3s ease-out forwards, 
+             pulse 2s infinite ease-in-out, 
+             topOut 0.3s ease-in 4.5s forwards;
+}
+
+.notificationError {
+  background: #ef4444;
+  border-left: 5px solid #dc2626;
+}
+
+@keyframes topIn {
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes topOut {
+  to { 
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(0) scale(1.08); }
+}
+
+/* Mantenha todos os outros estilos existentes */
+
+.categoryUrgent { color: #d69e2e; }
+.categoryVeryUrgent { color: #ed8936; }
+.categoryImmediate { color: #f56565; }
+.categoryStandard { color: #48bb78; }
+.categoryNonUrgent { color: #4299e1; }
